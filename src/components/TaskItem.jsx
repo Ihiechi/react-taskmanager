@@ -56,26 +56,26 @@ export default function TaskItem({
       {/* Status */}
       <td className="p-3 sm:p-4 align-middle">
         <span
-          className={
+          className={`capitalize ${
             task.status === "completed"
               ? "text-green-600 font-semibold"
               : "text-yellow-600 font-semibold"
-          }
+          }`}
         >
-          {task.status.charAt(0).toUpperCase() + task.status.slice(1)}
+          {task.status}
         </span>
       </td>
       <td className="p-3 sm:p-4 align-middle rounded">
         <span
-          className={
+          className={`capitalize ${
             task.priority === "high"
               ? "text-red-500 font-semibold"
               : task.priority === "medium"
                 ? "text-yellow-500 font-semibold"
                 : "text-blue-500"
-          }
+          }`}
         >
-          {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+          {task.priority}
         </span>
       </td>
 
