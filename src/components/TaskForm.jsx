@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { taskContext } from "../context/TaskContext";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 
 export default function TaskForm() {
   const { job, setJob } = useContext(taskContext);
@@ -10,13 +10,18 @@ export default function TaskForm() {
 
   const addNewTask = async () => {
     if (!inputValue.trim()) return;
+    const user = auth. currentUser
+    if (!user) {
+      console.log("No user is logged in");
+    }
     const newTask = {
-      id: Date.now(),
+     
       taskDescription: inputValue,
       status: "pending",
       priority: priority,
+      createdAt: new Date(),
     };
-    await addDoc(collection(db, "tasks"), newTask);
+    await addDoc(collection(db, "users", user.uid, "tasks"), newTask);
     setJob([...job, newTask]);
     setInputValue("");
   };

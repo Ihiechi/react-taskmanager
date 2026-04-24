@@ -32,12 +32,11 @@ export default function TaskItem({
         ) : (
           <div className="flex items-center justify-between gap-3">
             <span
-              className={`flex-1 ${
+              className={`flex-1 capitalize  ${
                 task.status === "completed" ? "line-through text-gray-400" : ""
               }`}
             >
-              {task.taskDescription.charAt(0).toUpperCase() +
-                task.taskDescription.slice(1).toLowerCase()}
+              {task.taskDescription}
             </span>
 
             <button
