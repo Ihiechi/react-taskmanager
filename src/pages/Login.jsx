@@ -57,10 +57,13 @@ export default function Login({ setIsSignup }) {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-50">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+      <h1 className="text-2xl font-bold text-center mb-6">
+        <span className="text-gray-800">Hechy's</span>{" "}
+        <span className="text-blue-500">Task Manager</span>
+      </h1>
       <div className="bg-white p-6 rounded-xl shadow-md flex flex-col items-center gap-4 w-80">
         <h2 className="text-2xl font-bold">Login</h2>
-
         <input
           type="email"
           placeholder="Email"
